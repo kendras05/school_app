@@ -14,7 +14,7 @@ class SchoolsController < ApplicationController
   end
 
   def create
-    @school = School.new(school_params)
+    @school = School.new(school_params).unique
     if @school.save
       redirect_to(schools_path, notice: "School added")
     else
