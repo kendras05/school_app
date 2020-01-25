@@ -14,7 +14,7 @@ class SchoolsController < ApplicationController
   end
 
   def create
-    @school = School.new(school_params).unique
+    @school = School.new(school_params)
     if @school.save
       redirect_to(schools_path, notice: "School added")
     else
@@ -30,7 +30,7 @@ class SchoolsController < ApplicationController
   def update
     @school = School.find(params[:id])
     if @school.update(school_params)
-    redirect_to(schools_path, notice: "School updated")
+    redirect_to(school_path, notice: "School updated")
     else
       flash[:alert] = "Error saving school"
       render(:edit)
