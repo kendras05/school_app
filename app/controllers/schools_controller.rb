@@ -38,10 +38,11 @@ class SchoolsController < ApplicationController
   end
 
   def destroy
-    @school = School.find(params[params:id])
+    @school = School.find(params[:id])
     @school.destroy
     redirect_to(schools_path, notice: "School deleted")
   end
+
 
   private
 
